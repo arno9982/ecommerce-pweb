@@ -1,10 +1,41 @@
-.container {
-    padding: 2rem 4rem;
+main{
+    padding: 0.5rem 3rem;
 }
-button {
-    background-color: black;
-    color: white;
-    border-radius: 32px;
-    width: 120px;
-    height: 32px;
+
+.hero-section{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-top: 2rem;
+}
+.hero-section > div{
+    flex: 1;
+}
+.hero-text-box {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    gap: 2rem;
+}
+.first-hero-box {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    gap: 1rem;
+}
+.first-hero-box h1 {
+    font-size: 2.75rem;
+}
+.first-hero-box p {
+    font-size: 1rem;
+}
+.hero-image-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-image-box img {
+    width: 450px;
 }
