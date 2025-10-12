@@ -1,16 +1,26 @@
-main{
+
+main {
     padding: 0.5rem 3rem;
+    margin-top: 120px; /* ✅ espace sous le header fixe */
 }
 
-.hero-section{
+/* ✅ section principale */
+.hero-section {
     display: flex;
     align-items: center;
     justify-content: start;
-    margin-top: 2rem;
+    gap: 2rem; /* espace horizontal entre texte et image */
+    margin-top: 0; /* ❌ supprime le décalage inutile (le margin-top est déjà dans main) */
+    flex-wrap: wrap; /* ✅ pour éviter le débordement sur petit écran */
 }
-.hero-section > div{
+
+/* ✅ structure interne */
+.hero-section > div {
     flex: 1;
+    min-width: 300px; /* pour éviter que les blocs se compressent trop */
 }
+
+/* ✅ boîte texte */
 .hero-text-box {
     display: flex;
     align-items: start;
@@ -18,6 +28,8 @@ main{
     flex-direction: column;
     gap: 2rem;
 }
+
+/* ✅ bloc principal du texte */
 .first-hero-box {
     display: flex;
     align-items: start;
@@ -25,12 +37,68 @@ main{
     flex-direction: column;
     gap: 1rem;
 }
+
 .first-hero-box h1 {
     font-size: 2.75rem;
+    line-height: 1.2;
 }
+
 .first-hero-box p {
     font-size: 1rem;
+    color: #333;
+    max-width: 600px;
 }
+
+/* ✅ boutons d’action */
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+.hero-actions button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 2rem;
+    font-weight: 600;
+}
+.btn-call-action-1 {
+    background-color: var(--accent);
+    color: white;
+}
+.btn-call-action-1:hover {
+    background-color: rgba(255, 38, 0, 0.8);
+}
+.btn-call-action-2 {
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+.btn-call-action-2:hover {
+    background-color: var(--highlight-light);
+}
+
+/* ✅ chiffres de présentation */
+.second-hero-box {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.second-hero-box div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.25rem;
+}
+.second-hero-box .value {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+.second-hero-box .label {
+    font-size: 0.9rem;
+}
+
+/* ✅ image principale */
 .hero-image-box {
     display: flex;
     align-items: center;
@@ -38,4 +106,31 @@ main{
 }
 .hero-image-box img {
     width: 450px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ✅ petit bonus responsive */
+@media screen and (max-width: 768px) {
+    main {
+        padding: 1rem;
+        margin-top: 100px;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-text-box, .first-hero-box, .second-hero-box {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-image-box img {
+        width: 90%;
+    }
 }
