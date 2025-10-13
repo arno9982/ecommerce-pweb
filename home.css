@@ -54,26 +54,29 @@ main {
     display: flex;
     gap: 1rem;
 }
-.hero-actions button {
+.hero-actions .btn-call-actions {
     padding: 0.75rem 1.5rem;
     border: none;
     cursor: pointer;
     border-radius: 2rem;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.btn-call-action-1 {
+.hero-actions .btn-call-action-1 {
     background-color: var(--accent);
     color: white;
 }
-.btn-call-action-1:hover {
+.hero-actions .btn-call-action-1:hover {
     background-color: rgba(255, 38, 0, 0.8);
 }
-.btn-call-action-2 {
+.hero-actions .btn-call-action-2 {
     background-color: transparent;
     color: var(--accent);
     border: 2px solid var(--accent);
 }
-.btn-call-action-2:hover {
+.hero-actions .btn-call-action-2:hover {
     background-color: var(--highlight-light);
 }
 
@@ -86,8 +89,13 @@ main {
 .second-hero-box div {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
+    text-align: center;
     gap: 0.25rem;
+    box-shadow: 5px 5px 5px rgba(204, 204, 204, 0.5);
+    padding: 0.5rem 0.5rem;
+    border-radius: 4px;
+    width: 8rem;
 }
 .second-hero-box .value {
     font-weight: bold;
