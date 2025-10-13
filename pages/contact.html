@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../normalize-perso.css">
+    <link rel="stylesheet" href="../styles/contact.css">
     <link rel="stylesheet" href="../base.css">
     <title>EASYSHOP</title>
 </head>
@@ -13,9 +13,9 @@
             <div class="logo-box">EASYSHOP</div>
             <div class="menu-box">
                 <nav>
-                    <a href="../index.html" class="link-active">Accueil</a>
+                    <a href="../index.html" >Accueil</a>
                     <a href="products.html">Produits</a>
-                    <a href="#">Contact</a>
+                    <a href="../Contact.css "class="link-active">Contact</a>
                     <a href="about.html">A propos</a>
                 </nav>
             </div>
@@ -41,9 +41,69 @@
             </div>
         </header>
 
-        <main>
-            CONTACTS
-        </main>
+        <main class="contact-container">
+    <section class="contact-content">
+        <!-- Section gauche : titre + texte -->
+        <div class="contact-info">
+            <h1>Contact</h1>
+            <p class="description">
+                Shop with us for the best styles and deals!
+            </p>
+			<img src="../images/imagesa.png" alt="Illustration" class="contact-image">
+
+        </div>
+
+        <!-- Section droite : formulaire -->
+        <div class="contact-form">
+            <form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" placeholder="Company name">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="example@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <select id="country">
+                            <option selected>Cameroon</option>
+                            <option>France</option>
+                            <option>Espagne</option>
+                            <option>Germany</option>
+							<option>Senegal</option>
+							<option>Ghana</option>
+							<option>RCA</option>
+							<option>GABON</option>
+							<option>SOMALIE</option>
+							<option>NIGER</option>
+							<option>NIGERIA</option>
+							<option>CHINE</option>
+							<option>ESPAGNE</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" placeholder="Type your message..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+   
+</main>
 
         <footer>
             <div class="first-box">
