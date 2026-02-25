@@ -1,0 +1,189 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    background-color: #f7f7f7; /* Arrière-plan très clair */
+    min-height: 80vh;
+}
+
+
+#products {
+    /* Centrage de la grille sur la page */
+    margin: 0 auto; 
+    
+    /* Configuration de la grille */
+    display: grid;
+    /* Trois colonnes de même taille. max-width assure qu'elles ne sont pas trop grandes */
+    max-width: 1200px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px; /* Espace entre les cartes */
+    
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+/* Rendre le layout responsive : 1 colonne sur très petits écrans, 2 sur tablette, 3 sur desktop */
+@media (max-width: 1024px) {
+    #products {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablette */
+        max-width: 800px;
+    }
+}
+
+@media (max-width: 600px) {
+    #products {
+        grid-template-columns: 1fr; /* 1 colonne sur mobile */
+        max-width: 400px;
+    }
+}
+.product {
+    display: flex;
+    flex-direction: column; 
+    /* align-items: center; <--- RETIRER pour aligner le texte à gauche */
+    /* text-align: center; <--- RETIRER pour aligner le texte à gauche */
+    
+    background-color: white;
+    padding: 20px;
+    padding-bottom: 50px; /* Espace supplémentaire pour le bouton positionné en bas */
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative; /* CLÉ : Nécessaire pour positionner le bouton à l'intérieur */
+}
+/* Le reste des styles .product et .product:hover sont conservés */
+.product .title {
+    width: 100%; /* Important pour que le texte soit aligné à gauche */
+    text-align: left;
+    
+    /* Nouveaux styles pour l'esthétique */
+    font-size: 1.15em;
+    font-weight: 600;
+    color: #343a40; /* Gris foncé moderne */
+    margin-bottom: 4px;
+    margin-top: 10px; 
+}
+
+.product .price {
+    width: 100%; /* Important pour que le prix soit aligné à gauche */
+    text-align: left;
+    
+    /* Nouveaux styles pour l'esthétique */
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #e63946; /* Couleur de prix accrocheuse */
+    margin-bottom: 0; /* Réinitialiser la marge pour ne pas interférer avec le bouton */
+}
+.product button {
+    /* Positionnement du bouton en bas à droite de la carte */
+    position: absolute; /* CLÉ : Positionnement par rapport à .product (relative) */
+    bottom: 20px; /* Décalage depuis le bas */
+    right: 20px; /* Décalage depuis la droite */
+    
+    /* Style du bouton Panier */
+    background-color: #007bff; /* Couleur de fond du bouton */
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex; /* Assure que le SVG est centré dans le bouton */
+    justify-content: center;
+    align-items: center;
+}
+
+.product button:hover {
+    background-color: #0056b3;
+}
+
+.product button svg {
+    /* Le SVG prend la couleur blanche à l'intérieur du bouton */
+    fill: white; 
+    width: 24px;
+    height: 24px;
+}
+.product .image {
+    width: 100%;
+    height: 250px; /* La hauteur fixe que nous avons définie */
+    background-color: #e0e0e0; /* Le placeholder disparaîtra */
+    object-fit: cover; /* Assure que l'image remplit la zone sans être déformée */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+#navig-products {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 40px;
+    margin-left: 130%;
+}
+
+#navig-products span {
+    padding: 6px 12px; /* Réduction du padding */
+    min-width: 35px;  /* Réduction de la largeur minimale */
+    text-align: center;
+    border: 1px solid #ccc; /* Bordure plus légère */
+    border-radius: 6px;
+    cursor: pointer;
+    background-color: white;
+    color: #555;
+    font-weight: 500; /* Poids de police allégé */
+    transition: all 0.2s ease;
+    font-size: 0.9em; /* Taille de police légèrement réduite */
+}
+
+/* Style spécifique pour les boutons de navigation (Précédent/Suivant) */
+#navig-products span:first-child,
+#navig-products span:last-child {
+    font-size: 0.9em;
+    padding: 8px 15px; /* Réduction de la taille des boutons */
+    min-width: 60px; /* Réduction de la largeur minimale */
+    background-color: #f0f0f0; /* Légère coloration */
+    color: #007bff; /* Texte bleu */
+    border-color: #007bff;
+}
+
+/* État ACTIF ou survol pour le bouton */
+#navig-products span:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Surcharge pour l'état de survol des boutons Précédent/Suivant */
+#navig-products span:first-child:hover,
+#navig-products span:last-child:hover {
+    background-color: #0056b3;
+    color: white;
+    border-color: #0056b3;
+}
+
+.product-search {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding-left: 1.5rem;
+    background-color: var(--highlight-light);
+    box-shadow: var(--shadow);
+    width: 90%;
+    border-radius: 2rem;
+    height: 3rem;
+     margin-bottom: 40px;
+}
+.product-search input{
+    flex: 1;
+    font-size: 1rem;
+}
+.product-search button{
+    border-radius: 50%;
+    width: 3rem;
+    height: 100%;
+}
+
+/* Si vous ajoutez des numéros de page dans le HTML, utilisez une classe 'active' */
+/* Exemple : span.active { background-color: #007bff; color: white; border-color: #007bff; } */
